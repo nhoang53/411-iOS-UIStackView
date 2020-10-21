@@ -33,13 +33,6 @@ class ViewController: UIViewController {
         lbl2.backgroundColor = UIColor.cyan
         lbl2.textAlignment = .center
         
-        let nestedStV = UIStackView()
-        nestedStV.axis = .horizontal
-        nestedStV.distribution = .fillEqually
-        nestedStV.addArrangedSubview(lbl1)
-        nestedStV.addArrangedSubview(lbl2)
-        nestedStV.spacing = 10
-        
         let lbl = UILabel()     // don't design the frame, but design the lable
         lbl.text = "First name"
         lbl.backgroundColor = UIColor.yellow
@@ -50,12 +43,6 @@ class ViewController: UIViewController {
 //        lbl.frame.origin.y = view.frame.height/4
         lbl.sizeToFit()     // default origin (location) x=0, y=0
         
-//       ***** UIStackView: easy to create layout *****
-        let stackView = UIStackView()
-//        stackView.axis = .horizontal
-        stackView.axis = .vertical
-        stackView.distribution = .fillEqually   // this make 2 box have the same horizontal size
-        
 //        UITextField
         let txtField = UITextField()
         txtField.text = "George Sampson"
@@ -65,6 +52,21 @@ class ViewController: UIViewController {
 //        txtField.frame.origin.y = lbl.frame.origin.y
         txtField.sizeToFit()
 //        lbl.frame.size.height = txtField.frame.height
+        
+//       ***** UIStackView: easy to create layout *****
+//        Leading: left , trailing: right, 
+        let stackView = UIStackView()
+//        stackView.axis = .horizontal
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually   // this make 2 box have the same horizontal size
+//        stackView.alignment = .center     // align element within stackView, it will not stretch to fill anymore
+        
+        let nestedStV = UIStackView()
+        nestedStV.axis = .horizontal
+        nestedStV.distribution = .fillEqually
+        nestedStV.addArrangedSubview(lbl1)
+        nestedStV.addArrangedSubview(lbl2)
+        nestedStV.spacing = 10
         
 //        Display view
         stackView.layoutMargins = UIEdgeInsets(top:20, left: 20, bottom: 20, right: 20)
